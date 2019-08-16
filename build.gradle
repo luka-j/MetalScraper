@@ -1,0 +1,36 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.41'
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
+    id 'application'
+}
+
+group 'rs.lukaj'
+version '0.1-SNAPSHOT'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'rs.lukaj.metalarchives.scraper.MainKt'
+    }
+
+}
+mainClassName = 'rs.lukaj.metalarchives.scraper.MainKt'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    implementation 'org.postgresql:postgresql:42.2.6'
+    implementation 'org.jsoup:jsoup:1.12.1'
+    implementation group: 'org.jetbrains.kotlin', name: 'kotlin-script-runtime', version: '1.3.41'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+    implementation 'com.google.code.gson:gson:2.8.5'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
